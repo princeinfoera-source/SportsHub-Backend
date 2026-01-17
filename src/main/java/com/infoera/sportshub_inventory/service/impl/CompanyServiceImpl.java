@@ -7,6 +7,7 @@ import com.infoera.sportshub_inventory.service.CompanyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -26,8 +27,8 @@ public class CompanyServiceImpl implements CompanyService {
         company.setBusinessType(dto.getBusinessType());
         company.setCountry(dto.getCountry());
         company.setCoaType(dto.getCoaType());
-        company.setCreatedAt(new Date());
-        company.setUpdatedAt(new Date());
+        company.setCreatedAt(LocalDateTime.now());
+        company.setUpdatedAt(LocalDateTime.now());
 
         Company savedCompany = companyRepository.save(company);
         return ResponseEntity.ok(savedCompany);
